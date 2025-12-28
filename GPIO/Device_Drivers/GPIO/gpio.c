@@ -1,30 +1,41 @@
 #include <stdint.h>
 #include "gpio.h"
 
-void GPIO_Set(GPIO_PRT_Type* base, uint32_t pinNum)
+void GPIO_Set(uint8_t portNum, uint32_t pinNum)
 {
+    GPIO_PRT_Type* base;
+    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
     GPIO_PRT_OUT_SET(base) = GPIO_DR_MASK << pinNum;
 }
 
-void GPIO_Clr(GPIO_PRT_Type* base, uint32_t pinNum)
+void GPIO_Clr(uint8_t portNum, uint32_t pinNum)
 {
+    GPIO_PRT_Type* base;
+    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
     GPIO_PRT_OUT_CLR(base) = GPIO_DR_MASK << pinNum;
 }
 
-void GPIO_Inv(GPIO_PRT_Type* base, uint32_t pinNum)
+void GPIO_Inv(uint8_t portNum, uint32_t pinNum)
 {
+    GPIO_PRT_Type* base;
+    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
     GPIO_PRT_OUT_INV(base) = GPIO_DR_MASK << pinNum;
 }
 
-uint32_t GPIO_Read(GPIO_PRT_Type* base, uint32_t pinNum)
+uint32_t GPIO_Read(uint8_t portNum, uint32_t pinNum)
 {
+    GPIO_PRT_Type* base;
+    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
     return (GPIO_PRT_IN(base) >> (pinNum)) & GPIO_PS_MASK;
 }
 
-void GPIO_SetDrivemode(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value)
+void GPIO_SetDrivemode(uint8_t portNum, uint32_t pinNum, uint32_t value)
 {
     uint32_t tempReg;
     uint32_t pinLoc;
+
+    GPIO_PRT_Type* base;
+    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
 
     pinLoc = pinNum * GPIO_DRIVE_MODE_OFFSET;
     tempReg = ((((GPIO_PRT_Type*)(base))->PC) & ~(GPIO_PC_DM_MASK << pinLoc));
@@ -34,11 +45,15 @@ void GPIO_SetDrivemode(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value)
     (((GPIO_PRT_Type*)(base))->PC2) = tempReg | (((value & GPIO_DM_VAL_IBUF_DISABLE_MASK) >> GPIO_DRIVE_MODE_OFFSET) << pinNum);
 }
 
-void GPIO_SetHSIOM(const GPIO_PRT_Type* base, uint32_t pinNum, uint8_t value)
+
+void GPIO_SetHSIOM(uint8_t gpioportNum, uint32_t pinNum, uint8_t value)
 {
     uint32_t portNum;
     uint32_t tempReg;
     HSIOM_PRT_Type* portAddrHSIOM;
+    GPIO_PRT_Type* base;
+    
+    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * gpioportNum));
 
     portNum = ((uint32_t)(base) - 0x40040000UL) / 0x00000100UL;
     portAddrHSIOM = (HSIOM_PRT_Type*)(0x40020000UL + (0x00000100UL * portNum));
@@ -47,26 +62,31 @@ void GPIO_SetHSIOM(const GPIO_PRT_Type* base, uint32_t pinNum, uint8_t value)
     (((HSIOM_PRT_Type *)(portAddrHSIOM))->PORT_SEL) = tempReg | (( (uint32_t) value & GPIO_HSIOM_MASK) << (pinNum << GPIO_HSIOM_OFFSET));
 }
 
-void GPIO_SetInterruptEdge(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value)
+void GPIO_SetInterruptEdge(uint8_t portNum, uint32_t pinNum, uint32_t value)
 {
     uint32_t tempReg;
     uint32_t pinLoc;
+
+    GPIO_PRT_Type* base;
+    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
 
     pinLoc = pinNum << 0x1u;
     tempReg = (((GPIO_PRT_Type*)(base))->INTR_CFG) & ~(0x3u << pinLoc);
     (((GPIO_PRT_Type*)(base))->INTR_CFG) = tempReg | ((value & 0x3u) << pinLoc);
 }
 
-void GPIO_Pin_Init(GPIO_PRT_Type *base, uint32_t pinNum, const gpio_pin_config_t *config, uint8_t hsiom)
+void GPIO_Pin_Init(uint8_t portNum, uint32_t pinNum, const gpio_pin_config_t *config, uint8_t hsiom)
 {
-    ((config -> outVal) == 0) ? GPIO_Clr(base, pinNum) : GPIO_Set(base, pinNum);
-    GPIO_SetDrivemode(base, pinNum, config->driveMode);
-    GPIO_SetHSIOM(base, pinNum, hsiom);
-    GPIO_SetInterruptEdge(base, pinNum, config->intEdge);
+    ((config -> outVal) == 0) ? GPIO_Clr(portNum, pinNum) : GPIO_Set(portNum,pinNum);
+    GPIO_SetDrivemode(portNum, pinNum, config->driveMode);
+    GPIO_SetHSIOM(portNum, pinNum, hsiom);
+    GPIO_SetInterruptEdge(portNum, pinNum, config->intEdge);
 }
 
-void GPIO_ClearInterrupt(GPIO_PRT_Type* base, uint32_t pinNum)
+void GPIO_ClearInterrupt(uint8_t portNum, uint32_t pinNum)
 {
+    GPIO_PRT_Type* base;
+    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
     /* Any INTR MMIO registers AHB clearing must be preceded with an AHB read access */
     (void)(((GPIO_PRT_Type*)(base))->INTR);
 

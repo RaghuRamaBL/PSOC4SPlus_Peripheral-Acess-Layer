@@ -47,11 +47,11 @@ int main()
 {
    // register int Var_1, Var_2, Var_3, Var_4, Var_5; 
     enable_irq();
-    GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 2u, &LED10_P2_2_config, HSIOM_SEL_GPIO);
-    GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT3_DR, 7u, &SW2_P3_7_config, HSIOM_SEL_GPIO);
+    GPIO_Pin_Init(2, 2u, &LED10_P2_2_config, HSIOM_SEL_GPIO);
+    GPIO_Pin_Init(3, 7u, &SW2_P3_7_config, HSIOM_SEL_GPIO);
     // GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 0u, &LED9_P2_0_config, HSIOM_SEL_GPIO);
-    GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 0u, &SW_LED9_P2_0_config, HSIOM_SEL_GPIO);
-    GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT1_DR, 6u, &LED8_P1_6_config, HSIOM_SEL_GPIO);
+    GPIO_Pin_Init(2, 0u, &SW_LED9_P2_0_config, HSIOM_SEL_GPIO);
+    GPIO_Pin_Init(1, 6u, &LED8_P1_6_config, HSIOM_SEL_GPIO);
 
     NVIC_SetPriority(3u, 1u);
     NVIC_SetPriority(2u, 1u);
@@ -63,10 +63,10 @@ int main()
 
     for(;;)
     {
-        GPIO_Set((GPIO_PRT_Type *)CYREG_GPIO_PRT1_DR, 6u);
+        GPIO_Set(1, 6u);
         Delay(60000);
 
-        GPIO_Clr((GPIO_PRT_Type *)CYREG_GPIO_PRT1_DR, 6u);
+        GPIO_Clr(1, 6u);
         Delay(60000);  
  
     }
@@ -82,12 +82,12 @@ void Delay(int32_t delayNumber)
 void ioss_interrupts_gpio_3_IRQHandler(void)
 {
 
-    GPIO_ClearInterrupt((GPIO_PRT_Type *)CYREG_GPIO_PRT3_DR, 7u);
+    GPIO_ClearInterrupt(3, 7u);
     Delay(20000);
 
-    if((GPIO_Read((GPIO_PRT_Type *)CYREG_GPIO_PRT3_DR, 7u) == 0u))
+    if((GPIO_Read(3, 7u) == 0u))
     {
-        GPIO_Inv((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 2u);
+        GPIO_Inv(2, 2u);
     }  
 
 }
@@ -95,12 +95,12 @@ void ioss_interrupts_gpio_3_IRQHandler(void)
 void ioss_interrupts_gpio_2_IRQHandler(void)
 {
 
-    GPIO_ClearInterrupt((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 0u);
+    GPIO_ClearInterrupt(2, 0u);
     Delay(20000);
 
-    if((GPIO_Read((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 0u) == 0u))
+    if((GPIO_Read(2, 0u) == 0u))
     {
-        GPIO_Inv((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 2u);
+        GPIO_Inv(2, 2u);
     }  
 
 }

@@ -71,22 +71,22 @@ typedef struct {
 #define GPIO_HSIOM_OFFSET                   (2UL)      /**< Offset for HSIOM */
 #define GPIO_DRIVE_MODE_OFFSET              (3UL)      /**< Offset for Drive mode */
 
-void GPIO_Set(GPIO_PRT_Type* base, uint32_t pinNum);
+void GPIO_Set(uint8_t portNum, uint32_t pinNum);
 
-void GPIO_Clr(GPIO_PRT_Type* base, uint32_t pinNum);
+void GPIO_Clr(uint8_t portNum, uint32_t pinNum);
 
-void GPIO_Inv(GPIO_PRT_Type* base, uint32_t pinNum);
+void GPIO_Inv(uint8_t portNum, uint32_t pinNum);
 
-uint32_t GPIO_Read(GPIO_PRT_Type* base, uint32_t pinNum);
+uint32_t GPIO_Read(uint8_t portNum, uint32_t pinNum);
 
-void GPIO_SetDrivemode(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
+void GPIO_SetDrivemode(uint8_t portNum, uint32_t pinNum, uint32_t value);
 
-void GPIO_SetHSIOM(const GPIO_PRT_Type* base, uint32_t pinNum, uint8_t value);
+void GPIO_SetHSIOM(uint8_t portNum, uint32_t pinNum, uint8_t value);
 
-void GPIO_SetInterruptEdge(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
+void GPIO_SetInterruptEdge(uint8_t portNum, uint32_t pinNum, uint32_t value);
 
-void GPIO_Pin_Init(GPIO_PRT_Type *base, uint32_t pinNum, const gpio_pin_config_t *config, uint8_t hsiom);
+void GPIO_Pin_Init(uint8_t portNum, uint32_t pinNum, const gpio_pin_config_t *config, uint8_t hsiom);
 
-void GPIO_ClearInterrupt(GPIO_PRT_Type* base, uint32_t pinNum);
+void GPIO_ClearInterrupt(uint8_t portNum, uint32_t pinNum);
 
 #endif
