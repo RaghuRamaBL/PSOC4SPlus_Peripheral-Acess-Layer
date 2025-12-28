@@ -21,11 +21,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
   8 .debug_line   00000803  00000000  00000000  0000275e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
-  9 .debug_str    000004b1  00000000  00000000  00002f61  2**0
+  9 .debug_str    000004b3  00000000  00000000  00002f61  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 10 .comment      00000044  00000000  00000000  00003412  2**0
+ 10 .comment      00000044  00000000  00000000  00003414  2**0
                   CONTENTS, READONLY
- 11 .ARM.attributes 0000002c  00000000  00000000  00003456  2**0
+ 11 .ARM.attributes 0000002c  00000000  00000000  00003458  2**0
                   CONTENTS, READONLY
  12 .debug_frame  00000310  00000000  00000000  00003484  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -258,7 +258,7 @@ void GPIO_Set(uint8_t portNum, uint32_t pinNum)
  202:	1dfb      	adds	r3, r7, #7
  204:	701a      	strb	r2, [r3, #0]
     GPIO_PRT_Type* base;
-    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
+    base = GET_GPIO_BASE(portNum);
  206:	1dfb      	adds	r3, r7, #7
  208:	781b      	ldrb	r3, [r3, #0]
  20a:	4a07      	ldr	r2, [pc, #28]	@ (228 <__HEAP_SIZE+0x28>)
@@ -292,7 +292,7 @@ void GPIO_Clr(uint8_t portNum, uint32_t pinNum)
  236:	1dfb      	adds	r3, r7, #7
  238:	701a      	strb	r2, [r3, #0]
     GPIO_PRT_Type* base;
-    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
+    base = GET_GPIO_BASE(portNum);
  23a:	1dfb      	adds	r3, r7, #7
  23c:	781b      	ldrb	r3, [r3, #0]
  23e:	4a07      	ldr	r2, [pc, #28]	@ (25c <GPIO_Clr+0x30>)
@@ -326,7 +326,7 @@ void GPIO_Inv(uint8_t portNum, uint32_t pinNum)
  26a:	1dfb      	adds	r3, r7, #7
  26c:	701a      	strb	r2, [r3, #0]
     GPIO_PRT_Type* base;
-    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
+    base = GET_GPIO_BASE(portNum);
  26e:	1dfb      	adds	r3, r7, #7
  270:	781b      	ldrb	r3, [r3, #0]
  272:	4a07      	ldr	r2, [pc, #28]	@ (290 <GPIO_Inv+0x30>)
@@ -360,7 +360,7 @@ uint32_t GPIO_Read(uint8_t portNum, uint32_t pinNum)
  29e:	1dfb      	adds	r3, r7, #7
  2a0:	701a      	strb	r2, [r3, #0]
     GPIO_PRT_Type* base;
-    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
+    base = GET_GPIO_BASE(portNum);
  2a2:	1dfb      	adds	r3, r7, #7
  2a4:	781b      	ldrb	r3, [r3, #0]
  2a6:	4a08      	ldr	r2, [pc, #32]	@ (2c8 <GPIO_Read+0x34>)
@@ -401,7 +401,7 @@ void GPIO_SetDrivemode(uint8_t portNum, uint32_t pinNum, uint32_t value)
     uint32_t pinLoc;
 
     GPIO_PRT_Type* base;
-    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
+    base = GET_GPIO_BASE(portNum);
  2de:	187b      	adds	r3, r7, r1
  2e0:	781b      	ldrb	r3, [r3, #0]
  2e2:	4a19      	ldr	r2, [pc, #100]	@ (348 <GPIO_SetDrivemode+0x7c>)
@@ -468,7 +468,7 @@ void GPIO_SetDrivemode(uint8_t portNum, uint32_t pinNum, uint32_t value)
 0000034c <GPIO_SetHSIOM>:
 
 
-void GPIO_SetHSIOM(uint8_t gpioportNum, uint32_t pinNum, uint8_t value)
+void GPIO_SetHSIOM(uint8_t portNum, uint32_t pinNum, uint8_t value)
 {
  34c:	b580      	push	{r7, lr}
  34e:	b086      	sub	sp, #24
@@ -481,12 +481,12 @@ void GPIO_SetHSIOM(uint8_t gpioportNum, uint32_t pinNum, uint8_t value)
  35c:	1dbb      	adds	r3, r7, #6
  35e:	1c0a      	adds	r2, r1, #0
  360:	701a      	strb	r2, [r3, #0]
-    uint32_t portNum;
+    uint32_t HSIOM_portNum;
     uint32_t tempReg;
     HSIOM_PRT_Type* portAddrHSIOM;
-    GPIO_PRT_Type* base;
     
-    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * gpioportNum));
+    GPIO_PRT_Type* base;
+    base = GET_GPIO_BASE(portNum);
  362:	1dfb      	adds	r3, r7, #7
  364:	781b      	ldrb	r3, [r3, #0]
  366:	4a15      	ldr	r2, [pc, #84]	@ (3bc <GPIO_SetHSIOM+0x70>)
@@ -495,14 +495,14 @@ void GPIO_SetHSIOM(uint8_t gpioportNum, uint32_t pinNum, uint8_t value)
  36c:	021b      	lsls	r3, r3, #8
  36e:	617b      	str	r3, [r7, #20]
 
-    portNum = ((uint32_t)(base) - 0x40040000UL) / 0x00000100UL;
+    HSIOM_portNum = ((uint32_t)(base) - 0x40040000UL) / 0x00000100UL;
  370:	697b      	ldr	r3, [r7, #20]
  372:	4a13      	ldr	r2, [pc, #76]	@ (3c0 <GPIO_SetHSIOM+0x74>)
  374:	4694      	mov	ip, r2
  376:	4463      	add	r3, ip
  378:	0a1b      	lsrs	r3, r3, #8
  37a:	613b      	str	r3, [r7, #16]
-    portAddrHSIOM = (HSIOM_PRT_Type*)(0x40020000UL + (0x00000100UL * portNum));
+    portAddrHSIOM = (HSIOM_PRT_Type*)(0x40020000UL + (0x00000100UL * HSIOM_portNum));
  37c:	693b      	ldr	r3, [r7, #16]
  37e:	4a11      	ldr	r2, [pc, #68]	@ (3c4 <GPIO_SetHSIOM+0x78>)
  380:	4694      	mov	ip, r2
@@ -560,7 +560,7 @@ void GPIO_SetInterruptEdge(uint8_t portNum, uint32_t pinNum, uint32_t value)
     uint32_t pinLoc;
 
     GPIO_PRT_Type* base;
-    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
+    base = GET_GPIO_BASE(portNum);
  3da:	187b      	adds	r3, r7, r1
  3dc:	781b      	ldrb	r3, [r3, #0]
  3de:	4a0f      	ldr	r2, [pc, #60]	@ (41c <GPIO_SetInterruptEdge+0x54>)
@@ -682,7 +682,7 @@ void GPIO_ClearInterrupt(uint8_t portNum, uint32_t pinNum)
  4aa:	1dfb      	adds	r3, r7, #7
  4ac:	701a      	strb	r2, [r3, #0]
     GPIO_PRT_Type* base;
-    base = (GPIO_PRT_Type*)(0x40040000UL + (0x00000100UL * portNum));
+    base = GET_GPIO_BASE(portNum);
  4ae:	1dfb      	adds	r3, r7, #7
  4b0:	781b      	ldrb	r3, [r3, #0]
  4b2:	4a09      	ldr	r2, [pc, #36]	@ (4d8 <GPIO_ClearInterrupt+0x38>)

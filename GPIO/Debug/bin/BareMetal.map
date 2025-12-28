@@ -306,12 +306,12 @@ LOAD linker stubs
  .debug_line    0x00000484      0x1d9 ./Special_Libraries/cmsis_gcc.o
  .debug_line    0x0000065d      0x1a6 ./Startup/startup.o
 
-.debug_str      0x00000000      0x4b1
- .debug_str     0x00000000      0x4b1 ./Application_Source/main.o
+.debug_str      0x00000000      0x4b3
+ .debug_str     0x00000000      0x4b3 ./Application_Source/main.o
                                 0x2cd (size before relaxing)
- .debug_str     0x000004b1      0x2d0 ./Device_Drivers/GPIO/gpio.o
- .debug_str     0x000004b1      0x219 ./Special_Libraries/cmsis_gcc.o
- .debug_str     0x000004b1      0x1f8 ./Startup/startup.o
+ .debug_str     0x000004b3      0x2d2 ./Device_Drivers/GPIO/gpio.o
+ .debug_str     0x000004b3      0x219 ./Special_Libraries/cmsis_gcc.o
+ .debug_str     0x000004b3      0x1f8 ./Startup/startup.o
 
 .comment        0x00000000       0x44
  .comment       0x00000000       0x44 ./Application_Source/main.o

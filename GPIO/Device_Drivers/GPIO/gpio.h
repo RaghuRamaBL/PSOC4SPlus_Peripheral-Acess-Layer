@@ -2,14 +2,8 @@
 #define GPIO_H
 #include <stdint.h>
 
-#define  GPIO_PRT0_DR 0x40040000u
-#define  GPIO_PRT1_DR 0x40040100u
-#define  GPIO_PRT2_DR 0x40040200u
-#define  GPIO_PRT3_DR 0x40040300u
-#define  GPIO_PRT4_DR 0x40040400u
-#define  GPIO_PRT5_DR 0x40040500u
-#define  GPIO_PRT6_DR 0x40040600u
-#define  GPIO_PRT7_DR 0x40040700u
+#define GPIO_BASE            0x40040000u
+#define GPIO_PORT_STEP       0x00000100u
 
 /* following defines should be used for structure members */
 #define     __IM     volatile const      /*! Defines 'read only' structure member permissions */
@@ -40,6 +34,7 @@ typedef struct {
   __IM  uint32_t RESERVED2[45]; 
 } GPIO_PRT_Type;
 
+
 typedef struct
 {
     uint32_t outVal;         /**< Pin output state */
@@ -53,6 +48,9 @@ typedef struct {
 } HSIOM_PRT_Type;
 
 /* Total size of HSIOM_PRT_Type = 64 * 4 bytes = 256 bytes (0x100) */
+
+/* Macro to get base pointer */
+#define GET_GPIO_BASE(p)    ((GPIO_PRT_Type*)(GPIO_BASE + ((p) * GPIO_PORT_STEP)))
 
 #define GPIO_PRT_OUT_CLR(base)             (((GPIO_PRT_Type*)(base))->DR_CLR)
 #define GPIO_PRT_OUT_SET(base)             (((GPIO_PRT_Type*)(base))->DR_SET)
