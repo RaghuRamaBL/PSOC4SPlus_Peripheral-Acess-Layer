@@ -1,6 +1,7 @@
 #include <stdint.h>
-#include "./../Device_Drivers/GPIO/gpio.h"
-#include "./../Special_Libraries/cmsis_gcc.h"
+#include "./../Device_Drivers/gpio.h"
+#include "./../Device_Drivers/irq_mgmt.h"
+
 
 #define CYREG_GPIO_PRT2_DR      0x40040200u
 #define CYREG_GPIO_PRT2_PC      0x40040208u
@@ -46,7 +47,7 @@ void Delay(int32_t);
 int main()
 {
    // register int Var_1, Var_2, Var_3, Var_4, Var_5; 
-    enable_irq();
+    IRQ_EnableGlobal();
     GPIO_Pin_Init(2, 2u, &LED10_P2_2_config, HSIOM_SEL_GPIO);
     GPIO_Pin_Init(3, 7u, &SW2_P3_7_config, HSIOM_SEL_GPIO);
     // GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 0u, &LED9_P2_0_config, HSIOM_SEL_GPIO);

@@ -50,7 +50,7 @@ RM = rm -rf *.exe *.o *.elf
 
 #-{ Build Rules }---------------------------------------------------------------
 -include ./Application_Source/subdir.mk
--include ./Device_Drivers/GPIO/subdir.mk
+-include ./Device_Drivers/subdir.mk
 -include ./Libc_Device_Support/subdir.mk
 -include ./Special_Libraries/subdir.mk
 -include ./Startup/subdir.mk
