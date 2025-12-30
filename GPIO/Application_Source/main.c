@@ -17,7 +17,7 @@
 const gpio_pin_config_t LED10_P2_2_config = 
 {
     .outVal = 1,
-    .driveMode = 0x0EUL,
+    .driveMode = 0x06UL,
     .intEdge = 0x00UL,
 };
 
