@@ -90,3 +90,22 @@ void TCPWM_ClearInterrupt(uint8_t tcpwm_Num, uint8_t intrMask)
     tcpwm->INTR = intrMask & 0x03;
 }
 
+void TCPWM_SetCompare(uint8_t tcpwm_Num, uint32_t compare)
+{
+    if(tcpwm_Num > 7){
+        return;
+    }
+    TCPWM_CNT_Type* tcpwm;
+    tcpwm = GET_TCPWM_NUM(tcpwm_Num);
+    
+    TCPWM_Disable(tcpwm_Num);
+    TCPWM_SetCounter(tcpwm_Num, 0u);
+    if (compare == 0u) {
+        tcpwm->CC = 0xFFFFu;
+    } else {
+        tcpwm->CC = compare - 1u;
+    }
+    TCPWM_Enable(tcpwm_Num);
+    TCPWM_Start(tcpwm_Num);
+
+}

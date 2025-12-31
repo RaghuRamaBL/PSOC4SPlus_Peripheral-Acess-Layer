@@ -64,7 +64,7 @@ void TCPWM_SetCounter(uint8_t tcpwm_Num, uint32_t count);
 
 void TCPWM_ClearInterrupt(uint8_t tcpwm_Num, uint8_t intrMask);
 
-
+void TCPWM_SetCompare(uint8_t tcpwm_Num, uint32_t compare);
 
 
 
