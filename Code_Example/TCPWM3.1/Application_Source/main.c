@@ -27,7 +27,7 @@ const TCPWM_Config_t tcpwm3_config =
     .prescaler = 0                              // Divide by 1
 };
 
-const gpio_pin_config_t LED_config = 
+const gpio_pin_config_t GPIO_config = 
 {
     .outVal = 1,
     .driveMode = 0x06UL,
@@ -36,14 +36,10 @@ const gpio_pin_config_t LED_config =
 
 int main()
 {  
-    GPIO_Pin_Init(1, 2u, &LED_config, HSIOM_SEL_ACT_0);
+    GPIO_Pin_Init(1, 2u, &GPIO_config, HSIOM_SEL_ACT_0);
 
     /* Peripheral clock initializatio*/
     init_peri_Clock_Config();
-
-    NVIC_SetPriority(19u, 1u);
-    NVIC_ClearPendingIRQ(19u);
-    NVIC_EnableIRQ(19u);
 
 	TCPWM_Init(3, (TCPWM_Config_t *)&tcpwm3_config);
     TCPWM_Start(3);

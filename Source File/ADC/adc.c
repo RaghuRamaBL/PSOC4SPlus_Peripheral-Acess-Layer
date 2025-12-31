@@ -1,7 +1,6 @@
 #include "adc.h"
 #include <stdint.h>
 
-
 void ADC_Init(uint8_t VrefSelect, uint8_t PositiveInput, uint8_t NegativeInput, uint8_t ContinuousMode)
 {
     uint32_t tempreg;
@@ -40,7 +39,7 @@ void ADC_StartConversion(void)
 }
 
 //0  subresolution- 12 bit (0), 8 bit(1), 10 bit(2)
-void ADC_ChannelConfig(uint8_t channel, uint8_t subresolution, uint8_t sampleTime, uint8_t PortSelect, uint8_t PinNumber)
+void ADC_ChannelConfig(uint8_t channel, uint8_t subresolution, uint8_t PortSelect, uint8_t PinNumber)
 {
     uint32_t tempreg;
 
@@ -52,8 +51,8 @@ void ADC_ChannelConfig(uint8_t channel, uint8_t subresolution, uint8_t sampleTim
     tempreg &= ~ADC_CHANAL_CONFIG_MASK;
     tempreg |= (PinNumber & 0x0F) | 
                ((PortSelect & 0x0F) << 4) | 
-               ((subresolution & 0x01) << 9) | 
-               ((sampleTime & 0x03) << 12);
+               ((subresolution & 0x01) << 9);
+               
     // Configure the specified channel
     ADC->CHAN_CONFIG[channel] = tempreg;
 

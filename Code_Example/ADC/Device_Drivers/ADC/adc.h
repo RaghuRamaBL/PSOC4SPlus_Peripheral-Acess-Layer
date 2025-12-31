@@ -137,7 +137,7 @@ typedef struct {
 void ADC_Init(uint8_t VrefSelect, uint8_t PositiveInput, uint8_t NegativeInput, uint8_t ContinuousMode);
 uint16_t ADC_Read(uint8_t channel);
 void ADC_StartConversion(void);
-void ADC_ChannelConfig(uint8_t channel, uint8_t subresolution, uint8_t sampleTime, uint8_t PortSelect, uint8_t PinNumber);
+void ADC_ChannelConfig(uint8_t channel, uint8_t subresolution, uint8_t PortSelect, uint8_t PinNumber);
 void ADC_ChannelEnable(uint8_t channel);
 void ADC_ChannelDisable(uint8_t channel);
 
