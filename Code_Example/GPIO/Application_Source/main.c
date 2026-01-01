@@ -43,20 +43,17 @@ int main()
     GPIO_Pin_Init(3, 7u, &SW2_P3_7_config, HSIOM_SEL_GPIO);
 
     NVIC_SetPriority(3u, 1u);
-    NVIC_SetPriority(2u, 1u);
     NVIC_ClearPendingIRQ(3u);
-    NVIC_ClearPendingIRQ(2u);
     NVIC_EnableIRQ(3u);
-    NVIC_EnableIRQ(2u);
 
     for(;;)
     {
         GPIO_Set(1, 6u);
-        Delay(60000);
+        Delay(150000);
 
         GPIO_Clr(1, 6u);
-        Delay(60000);  
- 
+        Delay(150000);  
+
     }
     return 0;
 }

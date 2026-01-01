@@ -10,22 +10,10 @@ C:/IFX_EMBEDDED_SYSTEMS/softwares/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/
 Discarded input sections
 
  .data          0x00000000        0x0 ./Application_Source/main.o
- .bss           0x00000000        0x0 ./Application_Source/main.o
  .data          0x00000000        0x0 ./Device_Drivers/GPIO/gpio.o
  .bss           0x00000000        0x0 ./Device_Drivers/GPIO/gpio.o
- .text          0x00000000      0x10c ./Device_Drivers/CLOCK/peri_clock.o
  .data          0x00000000        0x0 ./Device_Drivers/CLOCK/peri_clock.o
  .bss           0x00000000        0x0 ./Device_Drivers/CLOCK/peri_clock.o
- .debug_info    0x00000000      0x2d1 ./Device_Drivers/CLOCK/peri_clock.o
- .debug_abbrev  0x00000000       0xe0 ./Device_Drivers/CLOCK/peri_clock.o
- .debug_aranges
-                0x00000000       0x20 ./Device_Drivers/CLOCK/peri_clock.o
- .debug_line    0x00000000      0x1b2 ./Device_Drivers/CLOCK/peri_clock.o
- .debug_str     0x00000000      0x28d ./Device_Drivers/CLOCK/peri_clock.o
- .comment       0x00000000       0x45 ./Device_Drivers/CLOCK/peri_clock.o
- .debug_frame   0x00000000       0x90 ./Device_Drivers/CLOCK/peri_clock.o
- .ARM.attributes
-                0x00000000       0x2c ./Device_Drivers/CLOCK/peri_clock.o
  .text          0x00000000       0x68 ./Device_Drivers/SYSTICK/systick.o
  .data          0x00000000        0x0 ./Device_Drivers/SYSTICK/systick.o
  .bss           0x00000000        0x0 ./Device_Drivers/SYSTICK/systick.o
@@ -34,24 +22,13 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x20 ./Device_Drivers/SYSTICK/systick.o
  .debug_line    0x00000000      0x175 ./Device_Drivers/SYSTICK/systick.o
- .debug_str     0x00000000      0x1a9 ./Device_Drivers/SYSTICK/systick.o
+ .debug_str     0x00000000      0x1a6 ./Device_Drivers/SYSTICK/systick.o
  .comment       0x00000000       0x45 ./Device_Drivers/SYSTICK/systick.o
  .debug_frame   0x00000000       0x50 ./Device_Drivers/SYSTICK/systick.o
  .ARM.attributes
                 0x00000000       0x2c ./Device_Drivers/SYSTICK/systick.o
- .text          0x00000000      0x25c ./Device_Drivers/TIMER/tcpwm.o
  .data          0x00000000        0x0 ./Device_Drivers/TIMER/tcpwm.o
  .bss           0x00000000        0x0 ./Device_Drivers/TIMER/tcpwm.o
- .debug_info    0x00000000      0x3ed ./Device_Drivers/TIMER/tcpwm.o
- .debug_abbrev  0x00000000      0x132 ./Device_Drivers/TIMER/tcpwm.o
- .debug_aranges
-                0x00000000       0x20 ./Device_Drivers/TIMER/tcpwm.o
- .debug_line    0x00000000      0x253 ./Device_Drivers/TIMER/tcpwm.o
- .debug_str     0x00000000      0x2e9 ./Device_Drivers/TIMER/tcpwm.o
- .comment       0x00000000       0x45 ./Device_Drivers/TIMER/tcpwm.o
- .debug_frame   0x00000000      0x110 ./Device_Drivers/TIMER/tcpwm.o
- .ARM.attributes
-                0x00000000       0x2c ./Device_Drivers/TIMER/tcpwm.o
  .data          0x00000000        0x0 ./Device_Drivers/IRQ/irq_mgmt.o
  .bss           0x00000000        0x0 ./Device_Drivers/IRQ/irq_mgmt.o
  .text          0x00000000      0x1fc ./Device_Drivers/ADC/adc.o
@@ -62,7 +39,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x20 ./Device_Drivers/ADC/adc.o
  .debug_line    0x00000000      0x212 ./Device_Drivers/ADC/adc.o
- .debug_str     0x00000000      0x4e4 ./Device_Drivers/ADC/adc.o
+ .debug_str     0x00000000      0x4d6 ./Device_Drivers/ADC/adc.o
  .comment       0x00000000       0x45 ./Device_Drivers/ADC/adc.o
  .debug_frame   0x00000000       0xd4 ./Device_Drivers/ADC/adc.o
  .ARM.attributes
@@ -75,7 +52,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x20 ./Libc_Device_Support/malloc_support.o
  .debug_line    0x00000000       0x5a ./Libc_Device_Support/malloc_support.o
- .debug_str     0x00000000       0xe2 ./Libc_Device_Support/malloc_support.o
+ .debug_str     0x00000000       0xdf ./Libc_Device_Support/malloc_support.o
  .comment       0x00000000       0x45 ./Libc_Device_Support/malloc_support.o
  .debug_frame   0x00000000       0x2c ./Libc_Device_Support/malloc_support.o
  .ARM.attributes
@@ -88,7 +65,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x20 ./Libc_Device_Support/printf_support.o
  .debug_line    0x00000000       0x5a ./Libc_Device_Support/printf_support.o
- .debug_str     0x00000000       0xe2 ./Libc_Device_Support/printf_support.o
+ .debug_str     0x00000000       0xdf ./Libc_Device_Support/printf_support.o
  .comment       0x00000000       0x45 ./Libc_Device_Support/printf_support.o
  .debug_frame   0x00000000       0x2c ./Libc_Device_Support/printf_support.o
  .ARM.attributes
@@ -101,7 +78,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x20 ./Libc_Device_Support/syscalls.o
  .debug_line    0x00000000      0x2d7 ./Libc_Device_Support/syscalls.o
- .debug_str     0x00000000      0x3fd ./Libc_Device_Support/syscalls.o
+ .debug_str     0x00000000      0x3fa ./Libc_Device_Support/syscalls.o
  .comment       0x00000000       0x45 ./Libc_Device_Support/syscalls.o
  .debug_frame   0x00000000      0x264 ./Libc_Device_Support/syscalls.o
  .ARM.attributes
@@ -114,7 +91,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x20 ./Special_Libraries/dsplib.o
  .debug_line    0x00000000       0x56 ./Special_Libraries/dsplib.o
- .debug_str     0x00000000       0xdb ./Special_Libraries/dsplib.o
+ .debug_str     0x00000000       0xd8 ./Special_Libraries/dsplib.o
  .comment       0x00000000       0x45 ./Special_Libraries/dsplib.o
  .debug_frame   0x00000000       0x48 ./Special_Libraries/dsplib.o
  .ARM.attributes
@@ -127,7 +104,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x20 ./Special_Libraries/reset.o
  .debug_line    0x00000000      0x169 ./Special_Libraries/reset.o
- .debug_str     0x00000000      0x19a ./Special_Libraries/reset.o
+ .debug_str     0x00000000      0x197 ./Special_Libraries/reset.o
  .comment       0x00000000       0x45 ./Special_Libraries/reset.o
  .debug_frame   0x00000000       0x4c ./Special_Libraries/reset.o
  .ARM.attributes
@@ -201,175 +178,211 @@ END GROUP
                 0x20002e00                        __HEAP_START = (__STACK_END - __HEAP_SIZE)
                 0x20003000                        __HEAP_END = __STACK_END
 
-.text           0x00000000      0x6a0
+.text           0x00000000      0xb88
  *(.isr_vector)
  .isr_vector    0x00000000       0xc0 ./Startup/startup.o
                 0x00000000                vector
  *(.user_irq_hdlr)
  *(.text*)
- .text          0x000000c0       0xdc ./Application_Source/main.o
+ .text          0x000000c0      0x1c8 ./Application_Source/main.o
                 0x000000c0                main
-                0x00000130                Delay
-                0x0000016a                ioss_interrupts_gpio_3_IRQHandler
- .text          0x0000019c      0x2e4 ./Device_Drivers/GPIO/gpio.o
-                0x0000019c                GPIO_Set
-                0x000001d0                GPIO_Clr
-                0x00000204                GPIO_Inv
-                0x00000238                GPIO_Read
-                0x00000270                GPIO_SetDrivemode
-                0x000002f0                GPIO_SetHSIOM
-                0x0000036c                GPIO_SetInterruptEdge
-                0x000003c4                GPIO_Pin_Init
-                0x00000444                GPIO_ClearInterrupt
- .text          0x00000480      0x104 ./Device_Drivers/IRQ/irq_mgmt.o
-                0x00000480                IRQ_EnableGlobal
-                0x0000048c                IRQ_DisableGlobal
-                0x00000498                NVIC_SetPriority
-                0x000004f8                NVIC_ClearPendingIRQ
-                0x00000524                NVIC_EnableIRQ
-                0x00000550                NVIC_DisableIRQ
- .text          0x00000584       0xb0 ./Startup/startup.o
-                0x00000584                _init
-                0x0000058e                Reset_handler
-                0x00000624                tcpwm_interrupts_7_IRQHandler
-                0x00000624                pass_0_interrupt_sar_IRQHandler
-                0x00000624                SysTick_Handler
-                0x00000624                PendSV_Handler
-                0x00000624                NMI_Handler
-                0x00000624                ioss_interrupts_gpio_1_IRQHandler
-                0x00000624                cpuss_interrupt_dma_IRQHandler
-                0x00000624                scb_4_interrupt_IRQHandler
-                0x00000624                ioss_interrupts_gpio_2_IRQHandler
-                0x00000624                can_interrupt_can_IRQHandler
-                0x00000624                tcpwm_interrupts_4_IRQHandler
-                0x00000624                cpuss_interrupt_spcif_IRQHandler
-                0x00000624                scb_0_interrupt_IRQHandler
-                0x00000624                tcpwm_interrupts_3_IRQHandler
-                0x00000624                csd_interrupt_IRQHandler
-                0x00000624                tcpwm_interrupts_1_IRQHandler
-                0x00000624                lpcomp_interrupt_IRQHandler
-                0x00000624                crypto_interrupt_IRQHandler
-                0x00000624                tcpwm_interrupts_6_IRQHandler
-                0x00000624                ioss_interrupt_gpio_IRQHandler
-                0x00000624                scb_2_interrupt_IRQHandler
-                0x00000624                scb_1_interrupt_IRQHandler
-                0x00000624                Default_Handler
-                0x00000624                scb_3_interrupt_IRQHandler
-                0x00000624                ioss_interrupts_gpio_0_IRQHandler
-                0x00000624                tcpwm_interrupts_0_IRQHandler
-                0x00000624                SVC_Handler
-                0x00000624                tcpwm_interrupts_2_IRQHandler
-                0x00000624                tcpwm_interrupts_5_IRQHandler
-                0x00000624                srss_interrupt_wdt_IRQHandler
-                0x00000624                pass_0_interrupt_ctbs_IRQHandler
-                0x00000624                wco_interrupt_IRQHandler
-                0x0000062c                HRDFLT_Handler
-                0x0000062c                HardFault_Handler
+                0x000001ec                Delay
+                0x00000226                init_peri_Clock_Config
+                0x00000252                ioss_interrupts_gpio_3_IRQHandler
+ .text          0x00000288      0x2e4 ./Device_Drivers/GPIO/gpio.o
+                0x00000288                GPIO_Set
+                0x000002bc                GPIO_Clr
+                0x000002f0                GPIO_Inv
+                0x00000324                GPIO_Read
+                0x0000035c                GPIO_SetDrivemode
+                0x000003dc                GPIO_SetHSIOM
+                0x00000458                GPIO_SetInterruptEdge
+                0x000004b0                GPIO_Pin_Init
+                0x00000530                GPIO_ClearInterrupt
+ .text          0x0000056c      0x10c ./Device_Drivers/CLOCK/peri_clock.o
+                0x0000056c                PeriClock_DisableDivider
+                0x000005b4                PeriClock_EnableDivider
+                0x000005fc                PeriClock_Set_16_Divider
+                0x00000624                PeriClock_AssignDivider
+ .text          0x00000678      0x2d4 ./Device_Drivers/TIMER/tcpwm.o
+                0x00000678                TCPWM_Init
+                0x00000740                TCPWM_Enable
+                0x00000774                TCPWM_Disable
+                0x000007ac                TCPWM_Start
+                0x000007e4                TCPWM_Stop
+                0x0000081c                TCPWM_GetCounter
+                0x00000858                TCPWM_SetCounter
+                0x00000890                TCPWM_ClearInterrupt
+                0x000008d4                TCPWM_SetCompare
+ .text          0x0000094c      0x104 ./Device_Drivers/IRQ/irq_mgmt.o
+                0x0000094c                IRQ_EnableGlobal
+                0x00000958                IRQ_DisableGlobal
+                0x00000964                NVIC_SetPriority
+                0x000009c4                NVIC_ClearPendingIRQ
+                0x000009f0                NVIC_EnableIRQ
+                0x00000a1c                NVIC_DisableIRQ
+ .text          0x00000a50       0xb0 ./Startup/startup.o
+                0x00000a50                _init
+                0x00000a5a                Reset_handler
+                0x00000af0                tcpwm_interrupts_7_IRQHandler
+                0x00000af0                pass_0_interrupt_sar_IRQHandler
+                0x00000af0                SysTick_Handler
+                0x00000af0                PendSV_Handler
+                0x00000af0                NMI_Handler
+                0x00000af0                ioss_interrupts_gpio_1_IRQHandler
+                0x00000af0                cpuss_interrupt_dma_IRQHandler
+                0x00000af0                scb_4_interrupt_IRQHandler
+                0x00000af0                ioss_interrupts_gpio_2_IRQHandler
+                0x00000af0                can_interrupt_can_IRQHandler
+                0x00000af0                tcpwm_interrupts_4_IRQHandler
+                0x00000af0                cpuss_interrupt_spcif_IRQHandler
+                0x00000af0                scb_0_interrupt_IRQHandler
+                0x00000af0                tcpwm_interrupts_3_IRQHandler
+                0x00000af0                csd_interrupt_IRQHandler
+                0x00000af0                tcpwm_interrupts_1_IRQHandler
+                0x00000af0                lpcomp_interrupt_IRQHandler
+                0x00000af0                crypto_interrupt_IRQHandler
+                0x00000af0                tcpwm_interrupts_6_IRQHandler
+                0x00000af0                ioss_interrupt_gpio_IRQHandler
+                0x00000af0                scb_2_interrupt_IRQHandler
+                0x00000af0                scb_1_interrupt_IRQHandler
+                0x00000af0                Default_Handler
+                0x00000af0                scb_3_interrupt_IRQHandler
+                0x00000af0                ioss_interrupts_gpio_0_IRQHandler
+                0x00000af0                tcpwm_interrupts_0_IRQHandler
+                0x00000af0                SVC_Handler
+                0x00000af0                tcpwm_interrupts_2_IRQHandler
+                0x00000af0                tcpwm_interrupts_5_IRQHandler
+                0x00000af0                srss_interrupt_wdt_IRQHandler
+                0x00000af0                pass_0_interrupt_ctbs_IRQHandler
+                0x00000af0                wco_interrupt_IRQHandler
+                0x00000af8                HRDFLT_Handler
+                0x00000af8                HardFault_Handler
  .text.__libc_init_array
-                0x00000634       0x48 C:/IFX_EMBEDDED_SYSTEMS/softwares/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
-                0x00000634                __libc_init_array
+                0x00000b00       0x48 C:/IFX_EMBEDDED_SYSTEMS/softwares/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+                0x00000b00                __libc_init_array
  *(.init*)
  *(.fini*)
-                0x0000067c                        . = ALIGN (0x4)
+                0x00000b48                        . = ALIGN (0x4)
  *(.rodata .rodata.*)
- .rodata        0x0000067c       0x24 ./Application_Source/main.o
-                0x0000067c                LED_config
-                0x00000688                LED8_P1_6_config
-                0x00000694                SW2_P3_7_config
-                0x000006a0                        . = ALIGN (0x4)
-                0x000006a0                        __etext = .
-                0x000006a0                        _la_data = LOADADDR (.data)
+ .rodata        0x00000b48       0x40 ./Application_Source/main.o
+                0x00000b48                SW2_P3_7_config
+                0x00000b54                tcpwm3_config
+                0x00000b64                GPIO_config
+                0x00000b70                GPIOIN1_config
+                0x00000b7c                GPIOIN2_config
+                0x00000b88                        . = ALIGN (0x4)
+                0x00000b88                        __etext = .
+                0x00000b88                        _la_data = LOADADDR (.data)
 
-.glue_7         0x000006a0        0x0
- .glue_7        0x000006a0        0x0 linker stubs
+.glue_7         0x00000b88        0x0
+ .glue_7        0x00000b88        0x0 linker stubs
 
-.glue_7t        0x000006a0        0x0
- .glue_7t       0x000006a0        0x0 linker stubs
+.glue_7t        0x00000b88        0x0
+ .glue_7t       0x00000b88        0x0 linker stubs
 
-.vfp11_veneer   0x000006a0        0x0
- .vfp11_veneer  0x000006a0        0x0 linker stubs
+.vfp11_veneer   0x00000b88        0x0
+ .vfp11_veneer  0x00000b88        0x0 linker stubs
 
-.v4_bx          0x000006a0        0x0
- .v4_bx         0x000006a0        0x0 linker stubs
+.v4_bx          0x00000b88        0x0
+ .v4_bx         0x00000b88        0x0 linker stubs
 
-.iplt           0x000006a0        0x0
- .iplt          0x000006a0        0x0 ./Application_Source/main.o
+.iplt           0x00000b88        0x0
+ .iplt          0x00000b88        0x0 ./Application_Source/main.o
 
-.rel.dyn        0x000006a0        0x0
- .rel.iplt      0x000006a0        0x0 ./Application_Source/main.o
+.rel.dyn        0x00000b88        0x0
+ .rel.iplt      0x00000b88        0x0 ./Application_Source/main.o
 
-.data           0x20000000        0x0 load address 0x000006a0
+.data           0x20000000        0x0 load address 0x00000b88
                 0x20000000                        __data_start = .
  *(.data*)
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        __data_end = .
 
-.igot.plt       0x20000000        0x0 load address 0x000006a0
+.igot.plt       0x20000000        0x0 load address 0x00000b88
  .igot.plt      0x20000000        0x0 ./Application_Source/main.o
 
-.bss            0x20000000        0x0 load address 0x000006a0
+.bss            0x20000000        0x4 load address 0x00000b88
                 0x20000000                        __bss_start__ = .
  *(.bss)
+ .bss           0x20000000        0x2 ./Application_Source/main.o
+                0x20000000                flag
+                0x20000001                dir
  *(.bss.*)
  *(COMMON)
-                0x20000000                        . = ALIGN (0x4)
-                0x20000000                        __bss_end__ = .
-                0x20000000                        . = ALIGN (0x4)
-                0x20000000                        end = .
-                0x20000000                        __end__ = .
+                0x20000004                        . = ALIGN (0x4)
+ *fill*         0x20000002        0x2 
+                0x20000004                        __bss_end__ = .
+                0x20000004                        . = ALIGN (0x4)
+                0x20000004                        end = .
+                0x20000004                        __end__ = .
 
-Heap            0x20000000     0x2e00 load address 0x000006a0
+Heap            0x20000004     0x2dfc load address 0x00000b88
                 0x20002e00                        . = ABSOLUTE (__HEAP_START)
- *fill*         0x20000000     0x2e00 
+ *fill*         0x20000004     0x2dfc 
  *(.heap)
                 0x20002e00                        . = ALIGN (0x4)
 
-Stack           0x20002e00      0x200 load address 0x000006a0
+Stack           0x20002e00      0x200 load address 0x00000b88
                 0x20003000                        . = ABSOLUTE (__STACK_END)
  *fill*         0x20002e00      0x200 
  *(.stack)
 OUTPUT(bin/BareMetal.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000      0xb43
- .debug_info    0x00000000      0x276 ./Application_Source/main.o
- .debug_info    0x00000276      0x4fb ./Device_Drivers/GPIO/gpio.o
- .debug_info    0x00000771      0x233 ./Device_Drivers/IRQ/irq_mgmt.o
- .debug_info    0x000009a4      0x19f ./Startup/startup.o
+.debug_info     0x00000000     0x137d
+ .debug_info    0x00000000      0x3b5 ./Application_Source/main.o
+ .debug_info    0x000003b5      0x4fb ./Device_Drivers/GPIO/gpio.o
+ .debug_info    0x000008b0      0x2d1 ./Device_Drivers/CLOCK/peri_clock.o
+ .debug_info    0x00000b81      0x42a ./Device_Drivers/TIMER/tcpwm.o
+ .debug_info    0x00000fab      0x233 ./Device_Drivers/IRQ/irq_mgmt.o
+ .debug_info    0x000011de      0x19f ./Startup/startup.o
 
-.debug_abbrev   0x00000000      0x49b
- .debug_abbrev  0x00000000      0x14c ./Application_Source/main.o
- .debug_abbrev  0x0000014c      0x13c ./Device_Drivers/GPIO/gpio.o
- .debug_abbrev  0x00000288       0xfa ./Device_Drivers/IRQ/irq_mgmt.o
- .debug_abbrev  0x00000382      0x119 ./Startup/startup.o
+.debug_abbrev   0x00000000      0x6e0
+ .debug_abbrev  0x00000000      0x17d ./Application_Source/main.o
+ .debug_abbrev  0x0000017d      0x13c ./Device_Drivers/GPIO/gpio.o
+ .debug_abbrev  0x000002b9       0xe0 ./Device_Drivers/CLOCK/peri_clock.o
+ .debug_abbrev  0x00000399      0x134 ./Device_Drivers/TIMER/tcpwm.o
+ .debug_abbrev  0x000004cd       0xfa ./Device_Drivers/IRQ/irq_mgmt.o
+ .debug_abbrev  0x000005c7      0x119 ./Startup/startup.o
 
-.debug_aranges  0x00000000       0x80
+.debug_aranges  0x00000000       0xc0
  .debug_aranges
                 0x00000000       0x20 ./Application_Source/main.o
  .debug_aranges
                 0x00000020       0x20 ./Device_Drivers/GPIO/gpio.o
  .debug_aranges
-                0x00000040       0x20 ./Device_Drivers/IRQ/irq_mgmt.o
+                0x00000040       0x20 ./Device_Drivers/CLOCK/peri_clock.o
  .debug_aranges
-                0x00000060       0x20 ./Startup/startup.o
+                0x00000060       0x20 ./Device_Drivers/TIMER/tcpwm.o
+ .debug_aranges
+                0x00000080       0x20 ./Device_Drivers/IRQ/irq_mgmt.o
+ .debug_aranges
+                0x000000a0       0x20 ./Startup/startup.o
 
-.debug_line     0x00000000      0x7ed
- .debug_line    0x00000000      0x20d ./Application_Source/main.o
- .debug_line    0x0000020d      0x25e ./Device_Drivers/GPIO/gpio.o
- .debug_line    0x0000046b      0x1dc ./Device_Drivers/IRQ/irq_mgmt.o
- .debug_line    0x00000647      0x1a6 ./Startup/startup.o
+.debug_line     0x00000000      0xcc8
+ .debug_line    0x00000000      0x2bb ./Application_Source/main.o
+ .debug_line    0x000002bb      0x25e ./Device_Drivers/GPIO/gpio.o
+ .debug_line    0x00000519      0x1b2 ./Device_Drivers/CLOCK/peri_clock.o
+ .debug_line    0x000006cb      0x27b ./Device_Drivers/TIMER/tcpwm.o
+ .debug_line    0x00000946      0x1dc ./Device_Drivers/IRQ/irq_mgmt.o
+ .debug_line    0x00000b22      0x1a6 ./Startup/startup.o
 
-.debug_str      0x00000000      0x489
- .debug_str     0x00000000      0x489 ./Application_Source/main.o
-                                0x2a3 (size before relaxing)
- .debug_str     0x00000489      0x2df ./Device_Drivers/GPIO/gpio.o
- .debug_str     0x00000489      0x23c ./Device_Drivers/IRQ/irq_mgmt.o
- .debug_str     0x00000489      0x1f5 ./Startup/startup.o
+.debug_str      0x00000000      0x7d2
+ .debug_str     0x00000000      0x7d2 ./Application_Source/main.o
+                                0x39b (size before relaxing)
+ .debug_str     0x000007d2      0x2dc ./Device_Drivers/GPIO/gpio.o
+ .debug_str     0x000007d2      0x28a ./Device_Drivers/CLOCK/peri_clock.o
+ .debug_str     0x000007d2      0x2ec ./Device_Drivers/TIMER/tcpwm.o
+ .debug_str     0x000007d2      0x239 ./Device_Drivers/IRQ/irq_mgmt.o
+ .debug_str     0x000007d2      0x1f2 ./Startup/startup.o
 
 .comment        0x00000000       0x44
  .comment       0x00000000       0x44 ./Application_Source/main.o
                                  0x45 (size before relaxing)
  .comment       0x00000044       0x45 ./Device_Drivers/GPIO/gpio.o
+ .comment       0x00000044       0x45 ./Device_Drivers/CLOCK/peri_clock.o
+ .comment       0x00000044       0x45 ./Device_Drivers/TIMER/tcpwm.o
  .comment       0x00000044       0x45 ./Device_Drivers/IRQ/irq_mgmt.o
  .comment       0x00000044       0x45 ./Startup/startup.o
 
@@ -380,15 +393,21 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000002c       0x2c ./Device_Drivers/GPIO/gpio.o
  .ARM.attributes
-                0x00000058       0x2c ./Device_Drivers/IRQ/irq_mgmt.o
+                0x00000058       0x2c ./Device_Drivers/CLOCK/peri_clock.o
  .ARM.attributes
-                0x00000084       0x2c ./Startup/startup.o
+                0x00000084       0x2c ./Device_Drivers/TIMER/tcpwm.o
  .ARM.attributes
-                0x000000b0       0x2c C:/IFX_EMBEDDED_SYSTEMS/softwares/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+                0x000000b0       0x2c ./Device_Drivers/IRQ/irq_mgmt.o
+ .ARM.attributes
+                0x000000dc       0x2c ./Startup/startup.o
+ .ARM.attributes
+                0x00000108       0x2c C:/IFX_EMBEDDED_SYSTEMS/softwares/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
 
-.debug_frame    0x00000000      0x310
- .debug_frame   0x00000000       0x68 ./Application_Source/main.o
- .debug_frame   0x00000068      0x130 ./Device_Drivers/GPIO/gpio.o
- .debug_frame   0x00000198       0xc8 ./Device_Drivers/IRQ/irq_mgmt.o
- .debug_frame   0x00000260       0x84 ./Startup/startup.o
- .debug_frame   0x000002e4       0x2c C:/IFX_EMBEDDED_SYSTEMS/softwares/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+.debug_frame    0x00000000      0x4ec
+ .debug_frame   0x00000000       0x84 ./Application_Source/main.o
+ .debug_frame   0x00000084      0x130 ./Device_Drivers/GPIO/gpio.o
+ .debug_frame   0x000001b4       0x90 ./Device_Drivers/CLOCK/peri_clock.o
+ .debug_frame   0x00000244      0x130 ./Device_Drivers/TIMER/tcpwm.o
+ .debug_frame   0x00000374       0xc8 ./Device_Drivers/IRQ/irq_mgmt.o
+ .debug_frame   0x0000043c       0x84 ./Startup/startup.o
+ .debug_frame   0x000004c0       0x2c C:/IFX_EMBEDDED_SYSTEMS/softwares/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
