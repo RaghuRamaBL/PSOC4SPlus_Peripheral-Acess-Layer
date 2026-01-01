@@ -46,14 +46,15 @@ int main()
     NVIC_ClearPendingIRQ(3u);
     NVIC_EnableIRQ(3u);
 
+
     for(;;)
     {
         GPIO_Set(1, 6u);
-        Delay(150000);
+        Delay(60000);
 
         GPIO_Clr(1, 6u);
-        Delay(150000);  
-
+        Delay(60000);  
+ 
     }
     return 0;
 }
