@@ -34,4 +34,4 @@ More peripherals will be added incrementally
 
 Features will evolve based on real project needs
 
-💡 Feel free to explore, use, extend, and contribute!
+💡 Feel free to explore!
