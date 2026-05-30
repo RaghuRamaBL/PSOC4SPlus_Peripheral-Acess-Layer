@@ -15,11 +15,42 @@ void IRQ_DisableGlobal(void) {
     __asm volatile ("cpsid i" : : : "memory");
 }
 
+// void NVIC_SetPriority(uint32_t IRQn, uint32_t priority)
+// {
+//     if ((int32_t)(IRQn) >= 0){
+//         uint32_t IRQ_LDX = IRQn >> 2u;
+//         NVIC->IPR[IRQ_LDX] = (NVIC->IPR[IRQ_LDX] & ~(0xFFUL << ((IRQn & 0x03) << 3))) | (((priority & 0x03) << 6) << ((IRQn & 0x03) << 3));
+//     }
+// }
+
 void NVIC_SetPriority(uint32_t IRQn, uint32_t priority)
 {
-    if ((int32_t)(IRQn) >= 0){
-        uint32_t IRQ_LDX = IRQn >> 2u;
-        NVIC->IPR[IRQ_LDX] = (NVIC->IPR[IRQ_LDX] & ~(0xFFUL << ((IRQn & 0x03) << 3))) | (((priority & 0x03) << 6) << ((IRQn & 0x03) << 3));
+    if ((int32_t)IRQn >= 0)
+    {
+        uint32_t IRQ_LDX;
+        uint32_t FIELD_POS;
+        uint32_t CLEAR_MASK;
+        uint32_t PRIORITY_VALUE;
+
+        /* Which IPR register contains this IRQ */
+        IRQ_LDX = IRQn >> 2u;
+
+        /* Position of priority field inside IPR register */
+        FIELD_POS = (IRQn & 0x03u) << 3u;
+
+        /* Create mask to clear existing priority field */
+        CLEAR_MASK = ~(0xFFUL << FIELD_POS);
+
+        /* Priority occupies bits [7:6] of each byte */
+        PRIORITY_VALUE = ((priority & 0x03u) << 6u);
+
+        /* Move priority to correct IRQ field */
+        PRIORITY_VALUE <<= FIELD_POS;
+
+        /* Read -> Modify -> Write */
+        NVIC->IPR[IRQ_LDX] =
+            (NVIC->IPR[IRQ_LDX] & CLEAR_MASK)
+            | PRIORITY_VALUE;
     }
 }
 
