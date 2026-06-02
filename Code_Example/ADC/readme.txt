@@ -9,4 +9,4 @@ Below are the steps to be followed to make this workspace work in your system:
         a. "OpenOCD_path" : "<YOUR_PATH>"
         b. "local_gdbPath" : "<YOUR_PATH>"
 
-3. Create a path for openocd in user environment variables
+3. Create a path for openocd in user environment variables.
