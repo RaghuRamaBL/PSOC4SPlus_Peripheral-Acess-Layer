@@ -11,6 +11,9 @@
 #define CYREG_GPIO_PRT3_DR      0x40040300u
 #define CYREG_GPIO_PRT3_PC      0x40040308u
 
+#define CYREG_GPIO_PRT5_DR      0x40050100u
+#define CYREG_GPIO_PRT5_PC      0x40050108u
+
 #define SRSS_INTR_REG (*(volatile uint32_t *)0x40030044u)
 #define WDT_MATCH_REG (*(volatile uint32_t *)0x40030040u)
 #define SRSS_INTR_MASK_REG (*(volatile uint32_t *)0x4003004Cu)
@@ -65,11 +68,12 @@ int main()
     GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT1_DR, 6u, &LED8_P1_6_config, HSIOM_SEL_GPIO);
     GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT3_DR, 7u, &SW2_P3_7_config, HSIOM_SEL_GPIO);
     GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 0u, &SW_LED9_P2_0_config, HSIOM_SEL_GPIO);
-
+    GPIO_Pin_Init((GPIO_PRT_Type *)CYREG_GPIO_PRT1_DR, 2u, &LED8_P1_6_config, HSIOM_SEL_GPIO);
 
     NVIC_SetPriority(6u, 1u);
     NVIC_SetPriority(3u, 1u);
     NVIC_SetPriority(2u, 1u);
+
     /* Clearing and enabling the GPIO interrupt in NVIC */
     NVIC_ClearPendingIRQ(3u);
     NVIC_ClearPendingIRQ(6u);
@@ -80,7 +84,6 @@ int main()
    
     enable_irq();
 
-    // GPIO_Clr((GPIO_PRT_Type *)CYREG_GPIO_PRT1_DR, 6u);
     for (int32_t i = 0; i < 6; i++)
     {
         GPIO_Inv((GPIO_PRT_Type *)CYREG_GPIO_PRT1_DR, 6u);
@@ -106,6 +109,10 @@ void srss_interrupt_wdt_IRQHandler(void)
     SRSS_INTR_REG = 1u;
 
     wdt_count++;
+    GPIO_Inv((GPIO_PRT_Type *)CYREG_GPIO_PRT1_DR, 2u);
+    Delay(100000);
+    GPIO_Inv((GPIO_PRT_Type *)CYREG_GPIO_PRT1_DR, 2u);
+    Delay(100000);
 
     uint32_t match = WDT_MATCH_REG & 0xFFFF;
     match = (match + WDT_TIMEOUT_COUNT) & 0xFFFF;
@@ -137,6 +144,9 @@ void ioss_interrupts_gpio_2_IRQHandler(void)
     if((GPIO_Read((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 0u) == 0u))
     {
         GPIO_Inv((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 2u);
+        Delay(100000);
+        GPIO_Inv((GPIO_PRT_Type *)CYREG_GPIO_PRT2_DR, 2u);
+        Delay(100000);
     }  
 
 }
