@@ -1,4 +1,4 @@
-APPLICATION_NAME = BareMetal
+APPLICATION_NAME = Bootloader
 SEMIHOSTING = 0
 
 #  Directories

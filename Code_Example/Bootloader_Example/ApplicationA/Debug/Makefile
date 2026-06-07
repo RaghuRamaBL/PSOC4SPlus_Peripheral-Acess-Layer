@@ -1,4 +1,4 @@
-APPLICATION_NAME = BareMetal
+APPLICATION_NAME = ApplicationA
 SEMIHOSTING = 0
 
 #  Directories
